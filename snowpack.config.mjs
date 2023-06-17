@@ -12,6 +12,13 @@ export default {
         ...(process.versions.pnp ? { tsc: 'yarn pnpify tsc' } : {}),
       },
     ],
+    [
+      '@snowpack/plugin-run-script',
+      {
+        cmd: 'yarn asbuild:optimized', // production build command
+        watch: 'npm-watch', // (optional) dev server command
+      },
+    ],
   ],
   routes: [
     /* Enable an SPA Fallback in development: */

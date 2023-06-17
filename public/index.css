@@ -1,14 +1,14 @@
-#img {
-  display: block;
-  margin: auto;
-  height: 128px;
-  width: 128px;
-  padding: 2rem;
+body {
+  margin: 0;
 }
 
-#canvas {
-  display: block;
-  margin: 2rem auto;
-  width: 540px;
-  height: 540px;
+canvas {
+  image-rendering: pixelated;
+}
+
+#counter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
 }

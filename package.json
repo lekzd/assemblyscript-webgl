@@ -1,18 +1,34 @@
 {
+  "watch": {
+    "asbuild:untouched": {
+      "patterns": [
+        "assembly"
+      ],
+      "extensions": "ts",
+      "quiet": false
+    }
+  },
   "scripts": {
     "start": "snowpack dev",
+    "watch": "npm-watch",
     "build": "snowpack build",
-    "test": "echo \"This template does not include a test runner by default.\" && exit 1",
     "format": "prettier --write \"src/**/*.{ts,js}\"",
-    "lint": "prettier --check \"src/**/*.{ts,js}\""
+    "lint": "prettier --check \"src/**/*.{ts,js}\"",
+    "asbuild:untouched": "asc assembly/index.ts --importMemory --target debug",
+    "asbuild:optimized": "asc assembly/index.ts --runtime stub -O3 --importMemory --target release",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized"
   },
   "dependencies": {
+    "@assemblyscript/loader": "^0.17.14",
     "canvas-confetti": "^1.2.0"
   },
   "devDependencies": {
+    "@snowpack/plugin-run-script": "^2.3.0",
     "@snowpack/plugin-typescript": "^1.2.1",
     "@types/canvas-confetti": "^1.0.0",
     "@types/snowpack-env": "^2.3.3",
+    "assemblyscript": "^0.17.7",
+    "npm-watch": "^0.10.0",
     "prettier": "^2.2.1",
     "snowpack": "^3.3.7",
     "typescript": "^4.2.4"
